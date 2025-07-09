@@ -11,5 +11,7 @@ public class FutureExample {
         Future<?> future = executorService.submit(()-> "Hello"); //using callable under hood
         System.out.println(future.get()); // get method waits for computatuion
         executorService.shutdown();
+        executorService.isShutdown(); //true if shutdown initiated
+        executorService.isTerminated(); //true if all tasks are done
     }
 }
