@@ -25,9 +25,15 @@ public class invokeExample {
         List<Callable<Integer>> list = Arrays.asList(callable1,callable2,callable3);
 
         List<Future<Integer>> futures = executorService.invokeAll(list);
+
+        //get the result of futures with get method
+        for(Future<Integer> f: futures){
+            System.out.println(f.get());
+        }
         executorService.shutdown();
 
 
-
+        //executed last as invokeAll waits for execution
+        System.out.println("Hello World");
     }
 }
